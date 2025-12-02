@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Majed</title>
+    <link rel="canonical" href="https://majed.pages.dev/story.html">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0F766E;
+            --accent: #14B8A6;
+            --bg: #F0FDFA;
+            --white: #fff;
+            --shadow: 0 10px 30px rgba(15, 118, 110, 0.15);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Rubik', sans-serif;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: block;
+        }
+        nav a:hover, nav a.active {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Narrative */
+        .narrative {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+        .narrative-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .narrative h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        .narrative p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        /* Timeline */
+        .timeline-section {
+            padding: 6rem 0;
+            background: var(--bg);
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+        }
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+        }
+        .timeline-item:nth-child(even) .content {
+            background: var(--accent);
+            color: var(--white);
+        }
+        .timeline-item:nth-child(odd) .content {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid var(--bg);
+            transition: all 0.3s ease;
+        }
+        .timeline-item:nth-child(odd)::before {
+            right: -42px;
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -42px;
+        }
+        .content {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 350px;
+        }
+        .year {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        /* Milestones */
+        .milestones-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .milestone {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--bg), var(--white));
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .milestone:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 118, 110, 0.2);
+        }
+        .milestone span {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .milestone p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        /* Vision */
+        .vision {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        .vision h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .vision p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+        }
+        .cta {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+        }
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.95rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav li {
+                margin: 0.5rem 0;
+            }
+            .timeline-container::before {
+                left: 25px;
+            }
+            .timeline-item {
+                margin-left: 60px !important;
+                width: auto;
+            }
+            .timeline-item::before {
+                left: -42px !important;
+                right: auto !important;
+            }
+            .timeline-item:nth-child(even) {
+                margin-left: 60px !important;
+            }
+            .content {
+                max-width: none;
+            }
+            .hero {
+                padding: 5rem 0 4rem;
+            }
+            .narrative, .timeline-section, .milestones-section {
+                padding: 4rem 0;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .timeline-item {
+                margin-left: 50px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/portfolio.html">Portfolio</a></li>
+            <li><a href="#" class="active">Our Story</a></li>
+            <li><
