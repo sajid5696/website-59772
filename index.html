@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majed - Powerful SaaS Platform for Code Collaboration & Version Control</title>
+    <meta name="description" content="Majed is the ultimate SaaS platform for developers. Revolutionize version control, collaboration, and project management with Majed. Trusted by teams worldwide.">
+    <meta name="keywords" content="majed, saas, version control, git, collaboration, developers, code hosting">
+    <link rel="canonical" href="https://majed.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0F766E;
+            --secondary: #14B8A6;
+            --accent: #5EEAD4;
+            --bg: #F0FDFA;
+            --text: #134E4A;
+            --border: #99F6E4;
+            --shadow: 0 6px 14px rgba(15,118,110,0.12);
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Rubik', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Quicksand', sans-serif; font-weight: 600; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(240, 253, 250, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); transition: all 0.3s; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px; }
+        .logo { font-family: 'Quicksand', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--secondary); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--primary); transition: 0.3s; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta { display: inline-block; background: var(--accent); color: var(--primary); padding: 1rem 2rem; border-radius: var(--radius); text-decoration: none; font-weight: 500; transition: transform 0.3s, box-shadow 0.3s; }
+        .cta:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary); }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(15,118,110,0.2); }
+        .feature-card h3 { color: var(--primary); margin-bottom: 1rem; }
+        .integrations { background: white; }
+        .integrations-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; align-items: center; }
+        .integration-logo { height: 50px; filter: grayscale(100%); transition: filter 0.3s; }
+        .integration-logo:hover { filter: grayscale(0%); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; justify-items: center; }
+        .price-card { background: white; padding: 2.5rem 2rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; border: 1px solid var(--border); transition: all 0.3s; position: relative; }
+        .price-card.featured { border-color: var(--secondary); transform: scale(1.05); }
+        .price-card h3 { color: var(--primary); margin-bottom: 1rem; }
+        .price-card .price { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+        .price-card ul { list-style: none; margin-bottom: 2rem; }
+        .price-card li { margin-bottom: 0.5rem; }
+        .price-card button { background: var(--secondary); color: white; border: none; padding: 1rem 2rem; border-radius: var(--radius); font-weight: 500; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .price-card button:hover { background: var(--primary); }
+        .customers { background: white; text-align: center; }
+        .logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem; align-items: center; }
+        .logo-img { height: 60px; opacity: 0.7; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 1; }
+        .form-section { background: white; }
+        .demo-form { max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .demo-form input, .demo-form textarea { width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; }
+        .demo-form button { background: var(--secondary); color: white; border: none; padding: 1rem 2rem; border-radius: var(--radius); font-weight: 500; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .demo-form button:hover { background: var(--primary); }
+        footer { background: var(--primary); color: white; text-align: center; padding: 2rem 0; }
+        footer a { color: var(--accent); text-decoration: none; }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: var(--bg); flex-direction: column; justify-content: start; align-items: center; padding-top: 2rem; transition: left 0.3s; }
+            .nav-menu.active { left: 0; }
+            .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero { padding: 100px 0 60px; }
+            section { padding: 60px 0; }
+            .integrations-grid, .logos { gap: 2rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+  <meta name="google-site-verification" content="google-site-verification-placeholder" />
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">Majed</a>
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#integrations">Integrations</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#demo">Demo</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Supercharge Your Workflow with Majed</h1>
+            <p>Majed is a powerful SaaS platform built around Git. The world's largest host for source code and social network for developers—now with enterprise-grade features.</p>
+            <a href="#demo" class="cta">Request Demo</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">What is Majed? 💻</h2>
+            <div class="content-grid">
+                <div>
+                    <p>Majed is a powerful, web-based platform built around the Git version control system. It is essentially the world's largest host for source code and a massive social network for developers. It provides all the functionality of Git for version control, but adds a suite of collaboration, project management, and community features that make it indispensable for modern software development, whether you're working solo or with a large team. Explore more on <a href="https://github.com">github</a>.</p>
+                </div>
+                <div>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjBGREZBQSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiMxMzRFNDRhIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+UG93ZXJlZCBieSBNYWplZDwvdGV4dD48L3N2Zz4=" alt="Majed Illustration" style="width:100%; height:auto; border-radius:var(--radius);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Key Benefits & Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>1. Repositories (Repos)</h3>
+                    <p>A repository (or "repo") is the central place on Majed where a project lives. It contains all the project files and the entire revision history recorded by Git.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>2. Collaboration and Social Coding</h3>
+                    <p>This is where Majed shines as a "social network" for coders: Forking, Pull Requests (PRs), Following & Starring. Perfect for teams syncing with <a href="https://github.com">github</a>.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>3. Project Management Tools</h3>
+                    <p>Issues, Projects (Boards), Wikis and Pages: Tools to easily create documentation and manage workflows.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>4. Automated Workflows</h3>
+                    <p>Majed Actions allow developers to automate CI/CD right in your repository.</p>
+                </div>
+            </div>
+            <
